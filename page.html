@@ -12,7 +12,7 @@
     <body>
         <nav class="navbar navbar-dark bg-pato" aria-label="First navbar example">
             <div class="container">
-              <a class="navbar-brand" href="#">Patitos</a>
+              <a class="navbar-brand" href="#">Criaturas</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -32,7 +32,7 @@
         <header class="container">
             <div class="row">
                 <div class="col">
-                    <h1 class="text-center display-4 mt-5">PATOS EN CHILE</h1>
+                    <h1 class="text-center display-4 mt-5">Digimon</h1>
                     <h2 class="text-center fs-6 mb-5">Introducción al Desarrollo Front End con HTML, CSS y JavaScript</h2>
                 </div>
             </div>
@@ -42,9 +42,7 @@
 
     <div class= "row">
         <div class="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mx-auto mb-5">
-            <p class="lead"> Los patos conforman un grupo de animales presentes en el territorio chileno.
-                La gran diversidad de especies pertenece en conjunto a la familia Anatidae cuya subfamilia 
-                es Anatinae, el género de estas Anas.
+            <p class="lead"> Aqui un apartado con criaturas digitales.
             </p>
         </div>
     </div>
@@ -67,7 +65,7 @@
             var data, digimon;
 
             function preload() {
-                data = loadJSON("https://aves.ninjas.cl/api/birds");
+                data = loadJSON("https://digimon-api.vercel.app/api/digimon");
             }
 
             function setup() {
@@ -76,12 +74,8 @@
                 digimon = Object.values(data);
                 console.log(digimon);
                 digimon.forEach((a) => {
-                    if ((a.name.spanish.includes("Pato"))||(a.name.english.includes("duck"))) {
-                        createElement("div", '<div class="card shadow-sm"><img class="card-img-top"+ src="'+ a.images.thumb +
-                             '"><div class="card-body"><p class="card-text"><a href="page.html?detalle='+
-                                 a._links.self+'">'+ a.name.spanish + "</a></p></div>").class("col").parent("aqui");
-                    }
-                });
+                    createElement("div", '<div class="card shadow-sm"><img class="card-img-top" src="' + a.img + '"><div class="card-body"><p class="card-text">' + a.name + "</p></div>").class("col").parent("aqui");
+                                  });
             }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
